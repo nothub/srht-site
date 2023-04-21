@@ -19,7 +19,7 @@
       const ticker = setInterval(function () {
         let n = parseInt(document.getElementById("countdown").textContent, 10) - 1
         document.getElementById("countdown").textContent = n.toString();
-        if (n < 0) clearInterval(ticker)
+        if (n === 0) clearInterval(ticker)
       }, 1000);
     </script>
   </body>
