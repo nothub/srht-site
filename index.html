@@ -12,10 +12,12 @@
     <p>You should also visit <a href="https://hub.lol/">my other homepage</a>.</p>
     <p>Redirecting in: <span id="countdown">∞</span></p>
     <script defer>
-      let refreshMeta = Array.from(document.getElementsByTagName('meta'))
-        .filter(e => e.getAttribute('http-equiv') === "refresh")[0];
-      let n = parseInt(refreshMeta.getAttribute('content').split(";")[0], 10).toString()
-      document.getElementById("countdown").textContent = n
+      document.getElementById("countdown").textContent = parseInt(
+        Array.from(document.getElementsByTagName('meta'))
+          .find(e => e.getAttribute('http-equiv') === "refresh")
+          .getAttribute('content')
+          .split(";")[0],
+        10).toString()
       const ticker = setInterval(function () {
         let n = parseInt(document.getElementById("countdown").textContent, 10) - 1
         document.getElementById("countdown").textContent = n.toString();
